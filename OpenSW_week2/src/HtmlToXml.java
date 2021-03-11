@@ -15,7 +15,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 import org.w3c.dom.Element;
 
-public class HttpToXml {
+public class HtmlToXml {
 	private Document doc;
 	private Elements contents;
 	private org.w3c.dom.Document xml;
@@ -78,7 +78,7 @@ public class HttpToXml {
 
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
-		HttpToXml a = new HttpToXml();
+		HtmlToXml a = new HtmlToXml();
 		a.makeXML();
 		a.getHTML();
 		a.XMLWrite();
