@@ -76,12 +76,4 @@ public class HtmlToXml {
 	}
 	
 
-	public static void main(String[] args) throws Exception {
-		// TODO Auto-generated method stub
-		HtmlToXml a = new HtmlToXml();
-		a.makeXML();
-		a.getHTML();
-		a.XMLWrite();
-	}
-
 }

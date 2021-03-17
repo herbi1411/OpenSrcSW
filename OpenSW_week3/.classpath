@@ -7,5 +7,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="src/jsoup-1.13.1.jar"/>
+	<classpathentry kind="lib" path="src/kkma-2.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
