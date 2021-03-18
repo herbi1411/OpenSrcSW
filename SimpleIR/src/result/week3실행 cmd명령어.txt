@@ -1,0 +1,1 @@
+java -cp ../src/lib/kkma-2.1.jar; kuir -k C:\Users\loonatherworld\Desktop\2021-1\오픈SW\SimpleIR\SimpleIR\bin\collection.xml

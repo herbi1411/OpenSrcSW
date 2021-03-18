@@ -40,7 +40,7 @@ public final class makeKeyword {
 		bodyList = new ArrayList<String>();
 	}
 	public void openXml(String fn) throws IOException, ParserConfigurationException, SAXException {
-		File file = new File("./src/" +fn);
+		File file = new File(fn);
 	//	doc = Jsoup.parse(file,"UTF-8");
 		
 		DocumentBuilderFactory dbFactoty = DocumentBuilderFactory.newInstance();
@@ -106,7 +106,7 @@ public final class makeKeyword {
 		transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
 		transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 		DOMSource source = new DOMSource(newDoc);
-		StreamResult result = new StreamResult(new FileOutputStream(new File("src/index.xml")));
+		StreamResult result = new StreamResult(new FileOutputStream(new File("index.xml")));
 		transformer.transform(source,result);
 	}
 

@@ -48,15 +48,15 @@ public class makeCollection {
 		transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
 		transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 		DOMSource source = new DOMSource(xml);
-		StreamResult result = new StreamResult(new FileOutputStream(new File("src/collection.xml")));
+		StreamResult result = new StreamResult(new FileOutputStream(new File("collection.xml")));
 		transformer.transform(source,result);
 	}
-	public void getHTML() throws IOException{
+	public void getHTML(String dir) throws IOException{
 		
 		int num = 0;
 		String[] st = {"떡","라면","아이스크림","초밥","파스타"};
 		for(String s : st) {
-		File file = new File("./src/" + s + ".html");	
+		File file = new File(dir +"/" +  s + ".html");	
         doc = Jsoup.parse(file, "UTF-8");
         HTMLParsing(num++);
 		}

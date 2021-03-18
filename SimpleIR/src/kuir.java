@@ -2,15 +2,31 @@ public class kuir {
 
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
-		//week2////////////////////////////////////
-		/*HtmlToXml a = new HtmlToXml();
+		String dir = ".src\\data";
+		String collection = ".src\\data\\collection.xml";
+		if(args.length >0)
+		{
+			//week2////////////////////////////////////
+			if(args[0].equals("-c"))
+				week2(args[1]);
+			
+			//week3/////////////////////////////////////
+			else if(args[0].equals("-k"))
+				week3(args[1]);
+		}
+		else {
+			week2(dir);
+		}
+	}
+	public static void week2(String dir) throws Exception{
+		makeCollection a = new makeCollection();
 		a.makeXML();
-		a.getHTML();
-		a.XMLWrite();*/
-		//week3/////////////////////////////////////
+		a.getHTML(dir);
+		a.XMLWrite();
+	}
+	public static void week3(String collection)throws Exception  {
 		makeKeyword ma = new makeKeyword();
-		String fn = "collection.xml";
-		ma.openXml(fn);
+		ma.openXml(collection);
 		ma.parseDoc();
 		ma.set_doc();
 		ma.xmlWrite();
