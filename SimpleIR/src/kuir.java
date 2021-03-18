@@ -1,4 +1,4 @@
-public class Main {
+public class kuir {
 
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
@@ -8,7 +8,7 @@ public class Main {
 		a.getHTML();
 		a.XMLWrite();*/
 		//week3/////////////////////////////////////
-		MorphemeAnalyzer ma = new MorphemeAnalyzer();
+		makeKeyword ma = new makeKeyword();
 		String fn = "collection.xml";
 		ma.openXml(fn);
 		ma.parseDoc();

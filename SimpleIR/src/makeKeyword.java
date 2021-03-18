@@ -24,13 +24,13 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-public final class MorphemeAnalyzer {
+public final class makeKeyword {
 	private org.w3c.dom.Document newDoc;
 	private org.w3c.dom.Document doc;
 	private ArrayList<String> titleList;
 	private ArrayList<String> bodyList;
 	private Element docs; //new Xml doc
-	public MorphemeAnalyzer() throws ParserConfigurationException {
+	public makeKeyword() throws ParserConfigurationException {
 		DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
 		newDoc = docBuilder.newDocument();

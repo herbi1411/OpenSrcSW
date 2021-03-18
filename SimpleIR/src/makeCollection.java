@@ -15,7 +15,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 import org.w3c.dom.Element;
 
-public class HtmlToXml {
+public class makeCollection {
 	private Document doc;
 	private Elements contents;
 	private org.w3c.dom.Document xml;
@@ -74,6 +74,4 @@ public class HtmlToXml {
 		bd+=contents.get(contents.size()-1).text();
 		set_doc(num,tt,bd);
 	}
-	
-
 }
