@@ -2,8 +2,8 @@ public class kuir {
 
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
-		String dir = ".src\\data";
-		String collection = ".src\\data\\collection.xml";
+		String dir = "src\\data";
+		String collection = "bin\\collection.xml";
 		if(args.length >0)
 		{
 			//week2////////////////////////////////////
@@ -15,7 +15,8 @@ public class kuir {
 				week3(args[1]);
 		}
 		else {
-			week2(dir);
+		//	week2(dir);
+			week3(collection);
 		}
 	}
 	public static void week2(String dir) throws Exception{

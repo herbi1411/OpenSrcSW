@@ -8,14 +8,10 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.select.Elements;
 import org.snu.ids.kkma.index.Keyword;
 import org.snu.ids.kkma.index.KeywordExtractor;
 import org.snu.ids.kkma.index.KeywordList;
@@ -41,15 +37,10 @@ public final class makeKeyword {
 	}
 	public void openXml(String fn) throws IOException, ParserConfigurationException, SAXException {
 		File file = new File(fn);
-	//	doc = Jsoup.parse(file,"UTF-8");
-		
 		DocumentBuilderFactory dbFactoty = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder = dbFactoty.newDocumentBuilder();
 		doc = dBuilder.parse(file);
 		doc.getDocumentElement().normalize();
-		
-		//textChange();
-		//System.out.println(doc.text());
 	}
 	
 	public void parseDoc() {
@@ -71,7 +62,20 @@ public final class makeKeyword {
 			Keyword kwrd = kl.get(i);
 			output += kwrd.getString() + ":" + kwrd.getCnt() + "#";
 		}
-		System.out.println(output);
+		output = output.substring(0,output.length()-1); // 마지막 #제거
+		int size = output.length();
+		int qutient = size / 60;
+		if(size % 60 == 0) qutient -=1;
+		String rs = "";
+		int st = 0;
+		int end = 60;
+		for(int i=0; i<qutient; i++){
+			rs+=output.substring(st, end) + "\n\t\t";
+			st = end;
+			end += 60;
+		}
+		rs += output.substring(st,size);
+		output = rs;
 		return output;
 	}
 	private static String getTagValue(String tag, Element eElement) {
@@ -110,15 +114,4 @@ public final class makeKeyword {
 		transformer.transform(source,result);
 	}
 
-/*	
-	private void textChange() {
-		int i = 0;
-		Elements contents;
-	//	contents = doc.select("#1");
-	//	System.out.println(doc.body().text());
-		for(i=0; i<contents.size(); i++) {
-			System.out.println(contents.get(i).text());
-		}
-	}
-	*/
 }
