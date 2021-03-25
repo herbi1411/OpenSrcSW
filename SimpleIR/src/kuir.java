@@ -4,6 +4,7 @@ public class kuir {
 		// TODO Auto-generated method stub
 		String dir = "src\\data";
 		String collection = "bin\\collection.xml";
+		String indexxml = "bin\\index.xml";
 		if(args.length >0)
 		{
 			//week2////////////////////////////////////
@@ -17,6 +18,8 @@ public class kuir {
 		else {
 		//	week2(dir);
 			week3(collection);
+		//	week4(indexxml);
+		//	Test t = new Test();
 		}
 	}
 	public static void week2(String dir) throws Exception{
@@ -31,6 +34,11 @@ public class kuir {
 		ma.parseDoc();
 		ma.set_doc();
 		ma.xmlWrite();
+	}
+	public static void week4(String indexxml) throws Exception {
+		indexer mp = new indexer();
+		mp.openXml(indexxml);
+		mp.parseDoc();
 	}
 
 }
