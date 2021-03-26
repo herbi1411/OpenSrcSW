@@ -14,12 +14,14 @@ public class kuir {
 			//week3/////////////////////////////////////
 			else if(args[0].equals("-k"))
 				week3(args[1]);
+			//week4////////////////////////////////////
+			else if(args[0].contentEquals("-i"))
+				week4(args[1]);
 		}
 		else {
 		//	week2(dir);
-			week3(collection);
-		//	week4(indexxml);
-		//	Test t = new Test();
+		//	week3(collection);
+			week4(indexxml);
 		}
 	}
 	public static void week2(String dir) throws Exception{
@@ -39,6 +41,7 @@ public class kuir {
 		indexer mp = new indexer();
 		mp.openXml(indexxml);
 		mp.parseDoc();
+		mp.fileOutPut();
 	}
 
 }
