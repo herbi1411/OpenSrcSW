@@ -1,0 +1,1 @@
+java -cp ../src/lib/kkma-2.1.jar; kuir -s ./index.post -q "라면에는 면, 분말스프가 있다."
