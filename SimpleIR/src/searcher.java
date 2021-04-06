@@ -28,7 +28,7 @@ public class searcher {
 	public searcher() throws ParserConfigurationException, SAXException, IOException, ClassNotFoundException {
 		title = new ArrayList<String>();
 		id = new ArrayList<String>();
-		collectionFileName = "./collection.xml"; //collection.xmlÀÌ ½ÇÇà ÆÄÀÏ°ú °°Àº Æú´õ¿¡ ÀÖ´Ù°í °¡Á¤
+		collectionFileName = "./collection.xml"; //collection.xmlï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ù°ï¿½ ï¿½ï¿½ï¿½ï¿½
 		getTitle();
 	};
 	private void getTitle() throws ParserConfigurationException, SAXException, IOException {
@@ -41,7 +41,7 @@ public class searcher {
 		NodeList nlist = doc.getElementsByTagName("doc");
 		for (int i=0; i<nlist.getLength(); i++)
 		{
-			id.add(((Node)nlist.item(i)).getAttributes().getNamedItem("id").getTextContent()); //doc id ¼Ó¼º°ª °¡Á®¿À±â
+			id.add(((Node)nlist.item(i)).getAttributes().getNamedItem("id").getTextContent()); //doc id ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			title.add(getTagValue("title",(Element)nlist.item(i)));
 		}
 	}
