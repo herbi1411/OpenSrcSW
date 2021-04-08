@@ -28,7 +28,7 @@ public class searcher {
 	public searcher() throws ParserConfigurationException, SAXException, IOException, ClassNotFoundException {
 		title = new ArrayList<String>();
 		id = new ArrayList<String>();
-		collectionFileName = "./collection.xml"; //collection.xmlï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ù°ï¿½ ï¿½ï¿½ï¿½ï¿½
+		collectionFileName = "./collection.xml"; //collection.xmlÀÌ ½ÇÇà ÆÄÀÏ°ú °°Àº Æú´õ¿¡ ÀÖ´Ù°í °¡Á¤
 		getTitle();
 	};
 	private void getTitle() throws ParserConfigurationException, SAXException, IOException {
@@ -41,7 +41,7 @@ public class searcher {
 		NodeList nlist = doc.getElementsByTagName("doc");
 		for (int i=0; i<nlist.getLength(); i++)
 		{
-			id.add(((Node)nlist.item(i)).getAttributes().getNamedItem("id").getTextContent()); //doc id ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			id.add(((Node)nlist.item(i)).getAttributes().getNamedItem("id").getTextContent()); //doc id ¼Ó¼º°ª °¡Á®¿À±â
 			title.add(getTagValue("title",(Element)nlist.item(i)));
 		}
 	}
@@ -95,13 +95,21 @@ public class searcher {
 				if(indexPost.containsKey(str)) {
 					if(indexPost.get(str).contains(sid)) {
 						b += Math.pow((double)indexPost.get(str).get(indexPost.get(str).indexOf(sid)+1), 2);
+						System.out.println("Title: " + title.get(i));
+						System.out.println("str: " + str);
+						System.out.println("title array: " + indexPost.get(str));
+						System.out.println("title value: " + (double)indexPost.get(str).get(indexPost.get(str).indexOf(sid)+1));
+						System.out.println("str value: " + kwrd.getCnt());
+						System.out.println("³»Àû°ª: " + score1.get(i));
+						System.out.println("´©Àû ½ºÄÚ¾î: " + b);
+						System.out.println("");
 					}
 				}
 			}
 			score2.set(i, score1.get(i) / (sqrt_a * Math.sqrt(b)));
 			score2.set(i, Math.round(score2.get(i)*100)/100.0);
 		}
-//		System.out.println(score2);
+		//System.out.println(score2);
 		return score2;
 	}
 	
@@ -125,7 +133,7 @@ public class searcher {
 			Keyword kwrd = kl.get(i);
 			output += kwrd.getString() + ":" + kwrd.getCnt() + "# ";
 		}
-		//System.out.println(output);
+		System.out.println(output);
 		return kl;
 	}
 	public void printTop3Title(ArrayList<Double> score) {
@@ -141,15 +149,24 @@ public class searcher {
 		
 		for(int i=1; i<=3; i++) {
 			for(int j=0; j<rank.size(); j++) {
-				if(rank.get(j) == i) {
+				if(rank.get(j) == i && score.get(j) != 0) {
 					output.add(title.get(j));
 				}
 			}
 		}
-		//System.out.println("Title: " + title);
-		//System.out.println("Score:" + score);
+		System.out.println("Title: " + title);
+		System.out.println("Score:" + score);
 		//System.out.println("Rank: " + rank);
 		//System.out.println("output: " + output);
-		System.out.println(output.get(0) + ", " + output.get(1) + ", " + output.get(2));
+		if(!output.isEmpty()) {
+			int i;
+			int max = Integer.min(output.size(),3);
+			for(i = 0; i<max-1; i++){
+				System.out.print(output.get(i) + ", ");
+			}
+			System.out.println(output.get(i));
+		}
+		else
+			System.out.println("°Ë»ö °á°ú°¡ ¾ø½À´Ï´Ù.");
 	}
 }
