@@ -57,7 +57,7 @@ public class kuir {
 	public static void week5(String indexPost,String query) throws Exception{
 		searcher ft = new searcher();
 		ArrayList<Double> score;
-		score = ft.CalcSim(query,indexPost);
+		score = ft.InnerProduct(query,indexPost);
 		ft.printTop3Title(score);
 	}
 

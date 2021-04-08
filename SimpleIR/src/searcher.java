@@ -53,7 +53,7 @@ public class searcher {
 	        return null;
 	    return nValue.getNodeValue();
 	}
-	public ArrayList<Double> CalcSim(String query, String indexPostFileName) throws ClassNotFoundException, IOException {
+	public ArrayList<Double> InnerProduct(String query, String indexPostFileName) throws ClassNotFoundException, IOException {
 		HashMap<String,ArrayList> indexPost = getIndexPost(indexPostFileName);
 		KeywordList kl = morphemeAnalyze(query);
 		ArrayList<Double> score = new ArrayList<Double>();
