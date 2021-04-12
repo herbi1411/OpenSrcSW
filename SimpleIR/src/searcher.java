@@ -95,14 +95,14 @@ public class searcher {
 				if(indexPost.containsKey(str)) {
 					if(indexPost.get(str).contains(sid)) {
 						b += Math.pow((double)indexPost.get(str).get(indexPost.get(str).indexOf(sid)+1), 2);
-						System.out.println("Title: " + title.get(i));
+						/*System.out.println("Title: " + title.get(i));
 						System.out.println("str: " + str);
 						System.out.println("title array: " + indexPost.get(str));
 						System.out.println("title value: " + (double)indexPost.get(str).get(indexPost.get(str).indexOf(sid)+1));
 						System.out.println("str value: " + kwrd.getCnt());
 						System.out.println("내적값: " + score1.get(i));
 						System.out.println("누적 스코어: " + b);
-						System.out.println("");
+						System.out.println("");*/
 					}
 				}
 			}
@@ -133,7 +133,7 @@ public class searcher {
 			Keyword kwrd = kl.get(i);
 			output += kwrd.getString() + ":" + kwrd.getCnt() + "# ";
 		}
-		System.out.println(output);
+		//System.out.println(output);
 		return kl;
 	}
 	public void printTop3Title(ArrayList<Double> score) {
@@ -154,10 +154,11 @@ public class searcher {
 				}
 			}
 		}
-		System.out.println("Title: " + title);
-		System.out.println("Score:" + score);
+		//System.out.println("Title: " + title);
+		//System.out.println("Score:" + score);
 		//System.out.println("Rank: " + rank);
 		//System.out.println("output: " + output);
+		System.out.println("");
 		if(!output.isEmpty()) {
 			int i;
 			int max = Integer.min(output.size(),3);
